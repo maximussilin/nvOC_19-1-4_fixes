@@ -1,0 +1,6 @@
+{
+ "WTM_URL": "https://whattomine.com/coins.json",
+ "WTM_COINS": "ZEC;ETH",
+ "WTM_MIN_DIFFERENCE": "7",
+ "currency":"USD"
+}

@@ -1,0 +1,86 @@
+#!/bin/bash
+
+source ~/1bash
+
+# pulls updates for 2unix
+pasteUNIX="pasteunix"
+
+if [ $AUTO_UPDATE == "STABLE" ]
+then
+pasteUNIX="FdbBXhxN"
+fi
+
+if [ $AUTO_UPDATE == "BETA" ]
+then
+pasteUNIX="UmaMW0Pc"
+fi
+
+TIMEINP=$AUTO_UPDATE_TIMEOUT_IN_MINUTES
+TIMEOUT=$(($TIMEINP * 60))
+
+#echo ""
+#echo "checks for an nvOC update every $TIMEOUT seconds"
+#echo ""
+
+#BITCOIN="theGROUND"
+
+#while [ $BITCOIN == "theGROUND" ]
+#do
+
+cd /tmp
+wget https://pastebin.com/raw/$pasteUNIX
+sleep 2
+cp $pasteUNIX '/home/m1/temp2unix'
+sleep 2
+rm $pasteUNIX
+sleep 2
+sudo dos2unix /home/m1/temp2unix
+sleep 15
+
+change="NO"
+
+old=$(md5sum '/home/m1/2unix' | sed 's/[^0-9]*//g')
+echo $old
+echo ""
+sleep 2
+new=$(md5sum '/home/m1/temp2unix' | sed 's/[^0-9]*//g')
+echo $new
+echo ""
+
+if [ $old != $new ]
+then
+change="YES"
+pkill -e gnome-terminal
+pkill -f 3main
+pkill -e screen
+sleep 4
+cp '/home/m1/temp2unix' '/home/m1/2unix'
+sleep 4
+sudo dos2unix /home/m1/2unix
+echo ""
+echo "2unix updated from paste: $pasteUNIX"
+echo ""
+sleep 5
+fi
+
+if [ $change == "NO" ]
+then
+echo "no changes"
+echo ""
+fi
+
+echo "2unix check or update complete"
+
+if [ $LOCALorREMOTE == "LOCAL" ]
+then
+gnome-terminal
+fi
+
+if [ $LOCALorREMOTE == "REMOTE" ]
+then
+bash /home/m1/2unix
+fi
+
+#sleep $TIMEOUT
+#done
+#fi

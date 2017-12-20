@@ -1,0 +1,35 @@
+{
+ "currency": "USD",
+ "pwrcost": 0.10,
+ "min_profit": 0.0,
+ "payment_addr": "1TipsGocnz2N5qgAm9f7JLrsMqkb3oXe2",
+ "miner_name": "nvOC_v0019",
+ "performance": 
+ {
+   "daggerhashimoto": {
+     "speed": 0.087, "power": 0.397,
+     "power_limit": 125, "gpu_oc": -200, "mem_oc": 900, "fan": 0,
+     "cmd": "/home/m1/eth/ethminer_12dev2/ethminer -SP 2 -S daggerhashimoto.usa.nicehash.com:3353 -O {ADDR}.{MINER}:x -U" 
+   },
+   "equihash": {
+     "speed": 0.000001140, "power": 0.397,
+     "power_limit": 125, "gpu_oc": 100, "mem_oc": 100, "fan": 0,
+     "cmd": "/home/m1/zec/v3_4/miner --eexit 3 --fee 0 --pec --server equihash.usa.nicehash.com --user {ADDR}.{MINER} --pass z --port 3357"
+   },
+   "neoscrypt": {
+     "speed": 0.002160, "power": 0.397,
+     "power_limit": 125, "gpu_oc": 100, "mem_oc": 100, "fan": 0,
+     "cmd": "/home/m1/SPccminer/ccminer -a neoscrypt -o stratum+tcp://neoscrypt.usa.nicehash.com:3341 -u {ADDR}.{MINER} -p x"
+   },
+   "lyra2rev2": {
+     "speed": 0.081, "power": 0.386,
+     "power_limit": 125, "gpu_oc": 100, "mem_oc": 100, "fan": 0,
+     "cmd": "/home/m1/SPccminer/ccminer -a lyra2v2 -o stratum+tcp://lyra2rev2.usa.nicehash.com:3347 -u {ADDR}.{MINER} -p x"
+   },
+   "lbry": {
+     "speed": 0.639, "power": 0.392,
+     "power_limit": 125, "gpu_oc": 100, "mem_oc": 100, "fan": 0,
+     "cmd": "/home/m1/SPccminer/ccminer -a lbry -o stratum+tcp://lbry.usa.nicehash.com:3356 -u {ADDR}.{MINER} -p x"
+   }
+ }
+}
